@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Cursos | GEA Bolivia</title>
+  <style>
+    :root{--azul:#0e2a5a;--naranja:#e16b25;--gris:#f5f6fa}
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial}
+    a{text-decoration:none;color:inherit}
+    .nav{background:#fff;border-bottom:1px solid #eee}
+    .wrap{max-width:1100px;margin:auto;padding:16px}
+    .brand{display:flex;align-items:center;gap:8px;color:var(--azul);font-weight:800}
+    .brand img{height:34px;border-radius:6px}
+    .links{margin-left:auto;display:flex;gap:12px}
+    .row{display:flex;gap:12px;align-items:center}
+    .hero{background:linear-gradient(135deg,#0e2a5a,#1b3d7f);color:#fff}
+    .hero .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding-top:28px;padding-bottom:28px}
+    .search{flex:1;min-width:260px;display:flex;background:#fff;border-radius:12px;overflow:hidden}
+    .search input{border:0;flex:1;padding:12px 14px;font-size:16px}
+    .search button{border:0;background:var(--naranja);color:#fff;padding:0 14px;font-weight:700}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .card{border:1px solid #eef1f7;border-radius:14px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+    .card img{height:150px;object-fit:cover;width:100%}
+    .card h3{margin:10px 12px 0;color:var(--azul)}
+    .card p{margin:6px 12px 10px;color:#587}
+    .pill{margin:0 12px 12px;display:inline-block;background:var(--gris);padding:6px 10px;border-radius:999px;font-size:12px}
+    .btn{margin:0 12px 14px;background:var(--naranja);color:#fff;border-radius:10px;padding:10px 12px;text-align:center;font-weight:800}
+    .foot{background:#0e2a5a;color:#cfd7ea;margin-top:30px}
+    .foot .wrap{display:flex;justify-content:space-between;align-items:center}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap row">
+      <a class="brand" href="index.html"><img src="logo-gea.png" alt="GEA">GEA Bolivia</a>
+      <div class="links"><a href="index.html">Inicio</a><a href="aula.html">Aula Estudiantes</a></div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <div style="min-width:260px">
+        <h1 style="margin:0">Cursos disponibles</h1>
+        <p style="opacity:.9;margin:6px 0 0">Ediciones semanales — cupos limitados.</p>
+      </div>
+      <form class="search" onsubmit="event.preventDefault();filtrar()">
+        <input id="q" placeholder="Buscar (ej. 'contabilidad', 'RCP', 'diseño')">
+        <button>Buscar</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div id="grid" class="grid">
+      <!-- Las imágenes son ejemplo: cámbialas por las tuyas -->
+      <article class="card" data-tags="salud primeros auxilios rcp">
+        <img src="curso-primeros-auxilios.jpg" alt="Primeros Auxilios">
+        <h3>Primeros Auxilios</h3>
+        <p>RCP, desobstrucción, botiquín y simulaciones.</p>
+        <span class="pill">Ingreso libre + certificado</span>
+        <a class="btn" href="https://wa.me/59168025199">Inscribirme</a>
+      </article>
+
+      <article class="card" data-tags="programacion desarrollo web">
+        <img src="curso-programacion.png" alt="Programación">
+        <h3>Programación</h3>
+        <p>HTML/CSS/JS, lógica, proyectos web y Git.</p>
+        <span class="pill">Modalidad virtual/presencial</span>
+        <a class="btn" href="https://wa.me/59168025199">Inscribirme</a>
+      </article>
+
+      <article class="card" data-tags="odontologia salud">
+        <img src="curso-odontologia.png" alt="Odontología">
+        <h3>Odontología</h3>
+        <p>Actualización clínica, bioseguridad y protocolos.</p>
+        <span class="pill">Docentes especialistas</span>
+        <a class="btn" href="https://wa.me/59168025199">Inscribirme</a>
+      </article>
+
+      <article class="card" data-tags="contabilidad finanzas costos">
+        <img src="curso-contabilidad.png" alt="Contabilidad">
+        <h3>Contabilidad</h3>
+        <p>Estados financieros, tributación y costos.</p>
+        <span class="pill">+6 certificaciones</span>
+        <a class="btn" href="https://wa.me/59168025199">Inscribirme</a>
+      </article>
+
+      <article class="card" data-tags="diseno grafico branding">
+        <img src="curso-diseno.png" alt="Diseño Gráfico">
+        <h3>Diseño Gráfico</h3>
+        <p>Branding, redes sociales y portafolio.</p>
+        <span class="pill">Proyectos reales</span>
+        <a class="btn" href="https://wa.me/59168025199">Inscribirme</a>
+      </article>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div>© <span id="y"></span> GEA Bolivia</div>
+      <a href="https://wa.me/59168025199" style="color:#fff">📞 68025199</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent=new Date().getFullYear();
+    function filtrar(){
+      const q=(document.getElementById('q').value||'').toLowerCase();
+      document.querySelectorAll('#grid .card').forEach(c=>{
+        const t=(c.dataset.tags||'')+' '+c.querySelector('h3').textContent.toLowerCase();
+        c.style.display=t.includes(q)?'flex':'none';
+      });
+    }
+  </script>
+</body>
+</html>

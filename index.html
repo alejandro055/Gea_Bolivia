@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GEA Bolivia | Formación que transforma</title>
+  <meta name="description" content="GEA Bolivia: cursos semanales en primeros auxilios, programación, odontología, contabilidad y diseño gráfico."/>
+  <style>
+    :root{
+      --azul:#0e2a5a;     /* azul GEA */
+      --naranja:#e16b25;  /* naranja GEA */
+      --azul-50:#1b3d7f;
+      --gris:#f5f6fa;
+      --txt:#1e2a3a;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;color:var(--txt);background:#fff}
+    a{color:inherit;text-decoration:none}
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #eee}
+    .nav__wrap{max-width:1100px;margin:auto;display:flex;align-items:center;gap:20px;padding:12px 16px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--azul)}
+    .brand img{height:38px;width:auto;border-radius:6px;object-fit:cover}
+    .nav__links{margin-left:auto;display:flex;gap:14px}
+    .nav__links a{padding:8px 12px;border-radius:8px;font-weight:600;color:var(--azul)}
+    .nav__links a.cta{background:var(--naranja);color:#fff}
+    /* HERO */
+    .hero{background:linear-gradient(135deg, var(--azul) 0%, var(--azul-50) 60%), url('portada.jpg') center/cover no-repeat; color:#fff}
+    .hero__wrap{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:center;padding:60px 16px}
+    .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.05;margin:0 0 10px}
+    .hero p{opacity:.95;font-size:clamp(15px,2.3vw,18px);margin:10px 0 22px}
+    .btn{display:inline-block;padding:12px 18px;border-radius:12px;font-weight:700}
+    .btn--light{background:#fff;color:var(--azul)}
+    .badge{display:inline-block;background:var(--naranja);color:#fff;padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;margin-bottom:12px}
+    .hero__card{background:#fff;color:#123;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.12);padding:18px}
+    .hero__card img{width:100%;border-radius:12px;margin-top:8px}
+    /* QUIENES SOMOS */
+    .section{padding:54px 16px}
+    .wrap{max-width:1100px;margin:auto}
+    .grid-2{display:grid;grid-template-columns:1.1fr 1fr;gap:26px}
+    .chip{display:inline-block;padding:6px 10px;border:1px solid #e9edf5;border-radius:999px;font-size:12px;color:#4a5a7a}
+    .list{display:grid;gap:12px;margin-top:14px}
+    .list li{list-style:none;padding:12px 14px;border:1px dashed #e9edf5;border-radius:12px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+    .stat{background:var(--gris);padding:16px;border-radius:14px;text-align:center}
+    .stat b{font-size:22px;color:var(--azul)}
+    /* CURSOS DESTACADOS */
+    .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .card{border:1px solid #edf0f7;border-radius:14px;overflow:hidden}
+    .card img{width:100%;height:130px;object-fit:cover}
+    .card h4{margin:10px 12px 0;font-size:16px;color:var(--azul)}
+    .card p{margin:6px 12px 12px;color:#5b6a82;font-size:13px}
+    /* FOOTER */
+    .footer{background:var(--azul);color:#cfd7ea}
+    .footer a{color:#fff}
+    .footer__wrap{max-width:1100px;margin:auto;padding:26px 16px;display:grid;gap:10px;align-items:center}
+    .copy{font-size:13px;opacity:.85}
+    /* responsive */
+    @media (max-width:900px){
+      .hero__wrap{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .stats{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:520px){
+      .nav__links{gap:6px}
+      .cards{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__wrap">
+      <a class="brand" href="index.html">
+        <img src="logo-gea.png" alt="Logo GEA"/>
+        <span>GEA Bolivia</span>
+      </a>
+      <div class="nav__links">
+        <a href="index.html">Inicio</a>
+        <a href="cursos.html">Cursos</a>
+        <a class="cta" href="aula.html">Aula Estudiantes</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__wrap">
+      <div>
+        <span class="badge">Formación continua cada semana</span>
+        <h1>GEA Bolivia: formación que transforma</h1>
+        <p>Somos el <b>Grupo de Estudios y Actualización</b>. Conectamos a expertos con personas que desean crecer: talleres prácticos, clases en vivo y material descargable.</p>
+        <a class="btn btn--light" href="cursos.html">Ver cursos disponibles</a>
+      </div>
+      <aside class="hero__card">
+        <b>Próxima convocatoria</b>
+        <p>Inscripciones abiertas. Cupos limitados.</p>
+        <img src="portada2.png" alt="Graduados GEA con certificados">
+      </aside>
+    </div>
+  </header>
+
+  <!-- QUIÉNES SOMOS -->
+  <section class="section">
+    <div class="wrap grid-2">
+      <div>
+        <span class="chip">¿Quiénes somos?</span>
+        <h2 style="color:var(--azul);margin:8px 0 6px">Educación accesible y de calidad</h2>
+        <p>En GEA Bolivia impulsamos el aprendizaje práctico en áreas con alta demanda laboral. Organizamos <b>cursos semanales</b> con certificación y enfoque 100% aplicado.</p>
+        <ul class="list">
+          <li>Metodología práctica, casos reales y proyectos breves.</li>
+          <li>Docentes especialistas y mentores invitados.</li>
+          <li>Certificación GEA con valor curricular.</li>
+          <li>Modalidad presencial, virtual y mixta.</li>
+        </ul>
+        <div class="stats">
+          <div class="stat"><b>+5</b><div>áreas</div></div>
+          <div class="stat"><b>+1200</b><div>certificados</div></div>
+          <div class="stat"><b>Semanal</b><div>nuevas ediciones</div></div>
+          <div class="stat"><b>68025199</b><div>informes</div></div>
+        </div>
+      </div>
+      <div>
+        <img src="arte1.png" alt="Talleres GEA" style="width:100%;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.08)">
+        <p style="font-size:13px;color:#6b7a94;margin-top:8px">Entre juegos y enseñanzas, construimos valores para toda la vida.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURSOS DESTACADOS (preview) -->
+  <section class="section" style="background:var(--gris)">
+    <div class="wrap">
+      <h2 style="color:var(--azul);margin:0 0 8px">Áreas con convocatoria</h2>
+      <p style="margin-top:0">Explora el catálogo completo en la sección <a href="cursos.html" style="color:var(--naranja);font-weight:700">Cursos</a>.</p>
+      <div class="cards">
+        <article class="card">
+          <img src="curso-primeros-auxilios.jpg" alt="Curso de primeros auxilios">
+          <h4>Primeros Auxilios</h4>
+          <p>Protocolos, RCP, botiquín y simulaciones.</p>
+        </article>
+        <article class="card">
+          <img src="curso-programacion.png" alt="Curso de programación">
+          <h4>Programación</h4>
+          <p>Web full-stack, lógica y proyectos.</p>
+        </article>
+        <article class="card">
+          <img src="curso-odontologia.png" alt="Curso de odontología">
+          <h4>Odontología</h4>
+          <p>Actualización clínica y bioseguridad.</p>
+        </article>
+        <article class="card">
+          <img src="curso-contabilidad.png" alt="Curso de contabilidad">
+          <h4>Contabilidad</h4>
+          <p>Tributación, costos y herramientas.</p>
+        </article>
+        <article class="card">
+          <img src="curso-diseno.png" alt="Curso de diseño gráfico">
+          <h4>Diseño Gráfico</h4>
+          <p>Branding, piezas sociales y portafolio.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__wrap">
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="logo-gea.png" alt="GEA" style="height:36px;width:auto;border-radius:6px;background:#fff;padding:4px">
+        <div><b>GEA Bolivia</b><br><span class="copy">Grupo de Estudios y Actualización</span></div>
+      </div>
+      <div class="copy">© <span id="y"></span> GEA Bolivia · <a href="cursos.html">Cursos</a> · <a href="aula.html">Aula Estudiantes</a> · <a href="https://wa.me/59168025199">WhatsApp 68025199</a></div>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>

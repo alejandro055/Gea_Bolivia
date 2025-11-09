@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Aula Estudiantes | GEA Bolivia</title>
+  <style>
+    :root{--azul:#0e2a5a;--naranja:#e16b25;--gris:#f5f6fa}
+    *{box-sizing:border-box}body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:var(--gris)}
+    a{color:inherit;text-decoration:none}
+    .nav{background:#fff;border-bottom:1px solid #eee}
+    .wrap{max-width:980px;margin:auto;padding:16px}
+    .brand{display:flex;align-items:center;gap:8px;color:var(--azul);font-weight:800}
+    .brand img{height:34px;border-radius:6px}
+    .panel{margin:26px auto;background:#fff;border:1px solid #eef1f7;border-radius:16px;overflow:hidden}
+    .panel__head{background:linear-gradient(135deg,var(--azul),#1b3d7f);color:#fff;padding:20px}
+    .panel__body{padding:18px}
+    .login{display:grid;gap:12px;max-width:360px}
+    input[type=password]{padding:12px;border:1px solid #e1e6f0;border-radius:10px;font-size:16px}
+    button{padding:12px;border:0;background:var(--naranja);color:#fff;border-radius:10px;font-weight:800}
+    .ok{display:none}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .card{border:1px solid #eef1f7;border-radius:12px;padding:14px}
+    .muted{color:#6b7a94;font-size:13px}
+    @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap" style="display:flex;align-items:center;gap:12px">
+      <a class="brand" href="index.html"><img src="logo-gea.png" alt="GEA">GEA Bolivia</a>
+      <div style="margin-left:auto"><a href="cursos.html">Cursos</a></div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section class="panel">
+      <div class="panel__head">
+        <h1 style="margin:0">Aula de Estudiantes</h1>
+        <p style="margin:6px 0 0;opacity:.9">Acceso con contraseña para alumnos certificados.</p>
+      </div>
+      <div class="panel__body">
+        <!-- LOGIN -->
+        <div id="login" class="login">
+          <label for="pw"><b>Ingresa la contraseña</b></label>
+          <input id="pw" type="password" placeholder="Código GEA" />
+          <button onclick="entrar()">Entrar</button>
+          <p class="muted">Si no recibiste el código, escríbenos al <a href="https://wa.me/59168025199">WhatsApp 68025199</a>.</p>
+        </div>
+
+        <!-- CONTENIDO PRIVADO -->
+        <div id="ok" class="ok">
+          <div style="display:flex;gap:10px;align-items:center;margin-bottom:8px">
+            <h2 style="margin:0;color:var(--azul)">Material exclusivo</h2>
+            <span class="muted">Solo para uso académico — prohibida su redistribución.</span>
+            <div style="margin-left:auto"><button onclick="salir()" style="background:#c23d3d">Cerrar sesión</button></div>
+          </div>
+
+          <div class="grid">
+            <article class="card">
+              <h3>Primeros Auxilios</h3>
+              <ul>
+                <li><a href="#">Diapositivas RCP (PDF)</a></li>
+                <li><a href="#">Checklist de botiquín (XLSX)</a></li>
+                <li><a href="#">Guía de simulaciones (PDF)</a></li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Programación</h3>
+              <ul>
+                <li><a href="#">Proyecto web base (ZIP)</a></li>
+                <li><a href="#">Guía de Git & GitHub (PDF)</a></li>
+                <li><a href="#">Retos de lógica (PDF)</a></li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Contabilidad</h3>
+              <ul>
+                <li><a href="#">Plantilla de costos (XLSX)</a></li>
+                <li><a href="#">Ejercicios tributarios (PDF)</a></li>
+                <li><a href="#">Marco conceptual (PDF)</a></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    /* ========= CONFIGURA TU CONTRASEÑA ÚNICA (texto exacto) ========= */
+    const GEA_PASSWORD = "GEA2025"; // <-- cámbiala y comparte a tus alumnos
+
+    /* ====== LÓGICA SENCILLA (localStorage) ====== */
+    const KEY="gea:ok";
+    const ok = localStorage.getItem(KEY)==="1";
+    const loginEl = document.getElementById('login');
+    const okEl = document.getElementById('ok');
+    function pintar(){
+      if(ok){ loginEl.style.display="none"; okEl.style.display="block"; }
+    }
+    function entrar(){
+      const v=(document.getElementById('pw').value||"").trim();
+      if(v===GEA_PASSWORD){
+        localStorage.setItem(KEY,"1");
+        location.reload();
+      }else{
+        alert("Contraseña incorrecta.");
+      }
+    }
+    function salir(){
+      localStorage.removeItem(KEY);
+      location.reload();
+    }
+    if(ok){ loginEl.style.display="none"; okEl.style.display="block"; }
+  </script>
+</body>
+</html>
